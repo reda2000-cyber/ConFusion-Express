@@ -25,11 +25,9 @@ leaderRouter.route('/')
         res.end('Deleting all leaders');
     });
 
-const leaderRouterID = express.Router();
 
-leaderRouterID.use(bodyParser.json());
 
-leaderRouterID.route('/:leaderId')
+leaderRouter.route('/:leaderId')
     .get((req,res,next) => {
         res.end('Will send leaders of the leader: ' + req.params.leaderId +' to you!');
     })
@@ -49,4 +47,4 @@ leaderRouterID.route('/:leaderId')
         res.end('Deleting leader: ' + req.params.leaderId);
     });
 
-module.exports = {leaderRouter,leaderRouterID};
+module.exports = leaderRouter;
